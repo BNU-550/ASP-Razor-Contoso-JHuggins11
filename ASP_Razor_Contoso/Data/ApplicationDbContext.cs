@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using ASP_Razor_Contoso.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,9 @@ namespace ASP_Razor_Contoso.Data
             : base(options)
         {
         }
+
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Enrolment> Enrolments { get; set; }
+        public DbSet<Course> Courses { get; set; }
     }
 }
