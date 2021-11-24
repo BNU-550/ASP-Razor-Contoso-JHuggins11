@@ -17,5 +17,6 @@ namespace ASP_Razor_Contoso.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Enrolment> Enrolments { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Module> Modules { get; set; }
     }
 }
