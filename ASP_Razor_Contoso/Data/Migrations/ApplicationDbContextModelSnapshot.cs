@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace ASP_Razor_Contoso.Data.Migrations
+namespace ASP_Razor_Contoso.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -21,13 +21,9 @@ namespace ASP_Razor_Contoso.Data.Migrations
 
             modelBuilder.Entity("ASP_Razor_Contoso.Models.Course", b =>
                 {
-                    b.Property<int>("CourseID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CourseCode")
-                        .IsRequired()
-                        .HasMaxLength(6)
-                        .HasColumnType("nvarchar(6)");
+                    b.Property<string>("CourseID")
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -46,8 +42,8 @@ namespace ASP_Razor_Contoso.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CourseID")
-                        .HasColumnType("int");
+                    b.Property<string>("CourseID")
+                        .HasColumnType("nvarchar(8)");
 
                     b.Property<int?>("Grade")
                         .HasColumnType("int");
@@ -114,8 +110,8 @@ namespace ASP_Razor_Contoso.Data.Migrations
 
             modelBuilder.Entity("CourseModule", b =>
                 {
-                    b.Property<int>("CoursesCourseID")
-                        .HasColumnType("int");
+                    b.Property<string>("CoursesCourseID")
+                        .HasColumnType("nvarchar(8)");
 
                     b.Property<string>("ModulesModuleID")
                         .HasColumnType("nvarchar(6)");
@@ -331,9 +327,7 @@ namespace ASP_Razor_Contoso.Data.Migrations
                 {
                     b.HasOne("ASP_Razor_Contoso.Models.Course", "Course")
                         .WithMany("Enrolments")
-                        .HasForeignKey("CourseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CourseID");
 
                     b.HasOne("ASP_Razor_Contoso.Models.Student", "Student")
                         .WithMany("Enrolments")

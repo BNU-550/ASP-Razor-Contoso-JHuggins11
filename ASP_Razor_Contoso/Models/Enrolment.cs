@@ -11,7 +11,7 @@ namespace ASP_Razor_Contoso.Models
     public class Enrolment
     {
         public int EnrolmentID { get; set; }
-        public int CourseID { get; set; }
+        public string CourseID { get; set; }
         public int StudentID { get; set; }
 
         [DisplayFormat(NullDisplayText = "No grade")]
